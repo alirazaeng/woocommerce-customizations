@@ -1,0 +1,45 @@
+name: Bug report
+description: Report a reproducible problem in the examples or plugin
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not post credentials, customer data, payment information, or private client details.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+    validations:
+      required: true
+
+  - type: input
+    id: wordpress
+    attributes:
+      label: WordPress version
+
+  - type: input
+    id: woocommerce
+    attributes:
+      label: WooCommerce version
+
+  - type: input
+    id: php
+    attributes:
+      label: PHP version
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Theme / extension / checkout context
+      description: Include relevant context without exposing private information.
