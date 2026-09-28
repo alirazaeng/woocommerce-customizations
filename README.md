@@ -61,13 +61,13 @@ woocommerce-customizations/
 │   └── ali-woocommerce-customizations/
 │       ├── ali-woocommerce-customizations.php
 │       ├── includes/
-│       │   ├── class-account.php
-│       │   ├── class-assets.php
-│       │   ├── class-cart.php
-│       │   ├── class-checkout.php
-│       │   ├── class-order.php
-│       │   ├── class-plugin.php
-│       │   └── class-product.php
+│       │   ├── class-arwc-account.php
+│       │   ├── class-arwc-assets.php
+│       │   ├── class-arwc-cart.php
+│       │   ├── class-arwc-checkout.php
+│       │   ├── class-arwc-order.php
+│       │   ├── class-arwc-plugin.php
+│       │   └── class-arwc-product.php
 │       └── assets/
 │           ├── css/frontend.css
 │           └── js/frontend.js
