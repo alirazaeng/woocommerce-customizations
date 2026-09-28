@@ -7,10 +7,10 @@
 
 defined( 'ABSPATH' ) || exit;
 
-final /**
+/**
  * Main plugin coordinator.
  */
-class ARWC_Plugin {
+final class ARWC_Plugin {
 
 	/**
 	 * Singleton instance.
@@ -39,12 +39,12 @@ class ARWC_Plugin {
 	 */
 	public function init() {
 		$files = array(
-			'class-product.php',
-			'class-cart.php',
-			'class-checkout.php',
-			'class-account.php',
-			'class-order.php',
-			'class-assets.php',
+			'class-arwc-product.php',
+			'class-arwc-cart.php',
+			'class-arwc-checkout.php',
+			'class-arwc-account.php',
+			'class-arwc-order.php',
+			'class-arwc-assets.php',
 		);
 
 		foreach ( $files as $file ) {
