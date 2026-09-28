@@ -57,6 +57,8 @@ class ARWC_Order {
 			return;
 		}
 
+		// WooCommerce registers the manage_woocommerce capability.
+		// phpcs:ignore WordPress.WP.Capabilities.Unknown
 		if ( get_current_user_id() !== (int) $order->get_user_id() && ! current_user_can( 'manage_woocommerce' ) ) {
 			return;
 		}
