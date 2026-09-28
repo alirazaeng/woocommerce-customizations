@@ -51,7 +51,7 @@ function arwc_bootstrap() {
 		return;
 	}
 
-	require_once ARWC_DIR . 'includes/class-plugin.php';
+	require_once ARWC_DIR . 'includes/class-arwc-plugin.php';
 
 	ARWC_Plugin::instance()->init();
 }
