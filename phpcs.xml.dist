@@ -6,6 +6,7 @@
 	<file>examples</file>
 
 	<exclude-pattern>vendor/*</exclude-pattern>
+	<exclude-pattern>plugin/ali-woocommerce-customizations/assets/*</exclude-pattern>
 
 	<arg name="basepath" value="."/>
 	<arg name="colors"/>
