@@ -1,0 +1,37 @@
+name: Customization proposal
+description: Propose a reusable WooCommerce customization pattern
+title: "[Customization]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Business problem
+      description: What store behavior needs to change?
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Affected WooCommerce area
+      description: Product, cart, classic checkout, Checkout Blocks, account, order, email, etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: approach
+    attributes:
+      label: Proposed public API / hook
+      description: Which WooCommerce or WordPress extension point should be used?
+    validations:
+      required: true
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Regression and compatibility risks
+      description: Note payment, checkout, session, HPOS, extension, or theme considerations.
+    validations:
+      required: true
