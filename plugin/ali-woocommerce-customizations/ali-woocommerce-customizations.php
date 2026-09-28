@@ -28,8 +28,10 @@ define( 'ARWC_URL', plugin_dir_url( __FILE__ ) );
  * @return void
  */
 function arwc_declare_woocommerce_compatibility() {
-	if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
-		AutomatticWooCommerceUtilitiesFeaturesUtil::declare_compatibility(
+	$features_util = '\\Automattic\\WooCommerce\\Utilities\\FeaturesUtil';
+
+	if ( class_exists( $features_util ) ) {
+		$features_util::declare_compatibility(
 			'custom_order_tables',
 			ARWC_FILE,
 			true
