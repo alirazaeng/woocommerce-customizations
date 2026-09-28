@@ -8,7 +8,6 @@
  * Requires at least: 6.4
  * Requires PHP: 8.0
  * WC requires at least: 8.0
- * WC tested up to: 10.0
  *
  * @package AliWooCommerceCustomizations
  */
@@ -22,6 +21,11 @@ define( 'ARWC_URL', plugin_dir_url( __FILE__ ) );
 
 /**
  * Declare compatibility with WooCommerce features when the API is available.
+ *
+ * High-Performance Order Storage compatibility is declared because order
+ * metadata is read and written through WooCommerce CRUD objects.
+ *
+ * @return void
  */
 function arwc_declare_woocommerce_compatibility() {
 	if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
@@ -36,6 +40,8 @@ add_action( 'before_woocommerce_init', 'arwc_declare_woocommerce_compatibility' 
 
 /**
  * Bootstrap after plugins are loaded so WooCommerce availability is known.
+ *
+ * @return void
  */
 function arwc_bootstrap() {
 	if ( ! class_exists( 'WooCommerce' ) ) {
@@ -50,7 +56,30 @@ function arwc_bootstrap() {
 add_action( 'plugins_loaded', 'arwc_bootstrap' );
 
 /**
+ * Register rewrite state before flushing during activation.
+ *
+ * @return void
+ */
+function arwc_activate() {
+	add_rewrite_endpoint( 'project-notes', EP_ROOT | EP_PAGES );
+	flush_rewrite_rules();
+}
+register_activation_hook( __FILE__, 'arwc_activate' );
+
+/**
+ * Flush rewrite rules after deactivation.
+ *
+ * @return void
+ */
+function arwc_deactivate() {
+	flush_rewrite_rules();
+}
+register_deactivation_hook( __FILE__, 'arwc_deactivate' );
+
+/**
  * Admin notice shown when WooCommerce is unavailable.
+ *
+ * @return void
  */
 function arwc_missing_woocommerce_notice() {
 	if ( ! current_user_can( 'activate_plugins' ) ) {
