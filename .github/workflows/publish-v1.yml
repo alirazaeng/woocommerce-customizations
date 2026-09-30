@@ -1,0 +1,36 @@
+name: Publish v1.0.0
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/publish-v1.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Publish v1.0.0
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build installable plugin ZIP
+        run: |
+          cd plugin
+          zip -r ../ali-woocommerce-customizations-v1.0.0.zip ali-woocommerce-customizations
+
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view v1.0.0 >/dev/null 2>&1; then
+            echo "v1.0.0 already exists; nothing to publish."
+            exit 0
+          fi
+
+          gh release create v1.0.0             --target "$GITHUB_SHA"             --title "v1.0.0 — First Stable Release"             --notes-file RELEASE_NOTES.md             --latest             ali-woocommerce-customizations-v1.0.0.zip
