@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [1.0.0] - 2026-09-30
 
 ### Added
 
@@ -12,6 +12,12 @@
 - customer/admin order metadata rendering
 - My Account endpoint example
 - conditional frontend asset loading
+- safe-by-default feature flags
 - security and compatibility documentation
+- regression-testing checklist
 - WordPress Coding Standards configuration
 - GitHub Actions quality workflow
+
+### Changed
+
+- plugin version promoted from `0.1.0` to `1.0.0` for the first stable tagged release
