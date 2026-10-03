@@ -1,0 +1,14 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/wp-env.json",
+  "testsEnvironment": false,
+  "core": null,
+  "phpVersion": "8.2",
+  "plugins": [
+    "https://downloads.wordpress.org/plugin/woocommerce.11.1.2.zip",
+    "./plugin/ali-woocommerce-customizations"
+  ],
+  "mappings": {
+    "wp-content/mu-plugins/arwc-integration-tests.php": "./tests/integration-smoke.php"
+  },
+  "port": 8890
+}

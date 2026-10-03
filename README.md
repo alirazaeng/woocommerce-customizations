@@ -197,14 +197,26 @@ GitHub Actions runs:
 2. dependency installation
 3. WordPress Coding Standards / PHPCS
 4. PHP syntax checks across plugin and examples
+5. a disposable WordPress + WooCommerce runtime integration smoke test
 
-Run locally:
+Run static checks locally:
 
 ```bash
 composer install
 composer lint
 find plugin examples -name "*.php" -print0 | xargs -0 -n1 php -l
 ```
+
+Run the disposable WooCommerce integration test:
+
+```bash
+npm install --global @wordpress/env@11.16.0
+wp-env start --update
+wp-env run cli wp arwc-test
+wp-env destroy
+```
+
+See [Testing strategy](tests/README.md).
 
 ## Important compatibility notes
 
