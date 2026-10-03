@@ -1,5 +1,22 @@
 # Changelog
 
+## [Unreleased]
+
+### Added
+
+- disposable WordPress + WooCommerce runtime integration workflow using wp-env
+- runtime coverage for safe default feature flags and real `WC_Product` behavior
+- real WooCommerce cart/session subtotal and minimum-order validation coverage
+- classic checkout field registration and validation coverage
+- explicit HPOS runtime validation
+- real `WC_Order` creation plus sanitized metadata persistence/readback through WooCommerce CRUD
+- runtime integration status badge
+
+### Changed
+
+- GitHub Actions checkout dependency updated to the current maintained major version
+- testing documentation expanded with reproducible local wp-env commands
+
 ## [1.0.0] - 2026-09-30
 
 ### Added
