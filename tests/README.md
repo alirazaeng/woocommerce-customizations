@@ -30,7 +30,7 @@ The runtime test verifies that:
 - a real WooCommerce cart/session calculates the expected subtotal
 - minimum-order validation writes a WooCommerce error notice
 - classic checkout field registration and validation work
-- HPOS is active in the disposable store
+- the suite explicitly enables HPOS before order-persistence assertions
 - a real order is created under HPOS
 - sanitized checkout metadata persists and reads back through `WC_Order` CRUD
 
