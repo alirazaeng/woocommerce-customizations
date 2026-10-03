@@ -2,7 +2,7 @@
 
 Production-oriented WooCommerce customization patterns covering products, cart, checkout, customer accounts, orders, and conditional frontend assets.
 
-[![WooCommerce Code Quality](https://github.com/alirazaeng/woocommerce-customizations/actions/workflows/quality.yml/badge.svg)](https://github.com/alirazaeng/woocommerce-customizations/actions/workflows/quality.yml) [![Release](https://img.shields.io/github/v/release/alirazaeng/woocommerce-customizations?label=release)](https://github.com/alirazaeng/woocommerce-customizations/releases/latest) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![WooCommerce Code Quality](https://github.com/alirazaeng/woocommerce-customizations/actions/workflows/quality.yml/badge.svg)](https://github.com/alirazaeng/woocommerce-customizations/actions/workflows/quality.yml) [![Runtime Integration](https://github.com/alirazaeng/woocommerce-customizations/actions/workflows/integration.yml/badge.svg)](https://github.com/alirazaeng/woocommerce-customizations/actions/workflows/integration.yml) [![Release](https://img.shields.io/github/v/release/alirazaeng/woocommerce-customizations?label=release)](https://github.com/alirazaeng/woocommerce-customizations/releases/latest) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 This repository is designed as a maintainable WooCommerce engineering reference—not a collection of snippets that should be pasted blindly into production.
 
