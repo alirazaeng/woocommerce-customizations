@@ -27,6 +27,12 @@ The runtime test verifies that:
 - a real WooCommerce product can be created
 - the low-stock customization remains silent by default
 - the low-stock message renders correctly when explicitly enabled
+- a real WooCommerce cart/session calculates the expected subtotal
+- minimum-order validation writes a WooCommerce error notice
+- classic checkout field registration and validation work
+- HPOS is active in the disposable store
+- a real order is created under HPOS
+- sanitized checkout metadata persists and reads back through `WC_Order` CRUD
 
 No production database, customer records, payment credentials, or private client data are used.
 
@@ -43,4 +49,4 @@ wp-env run cli wp arwc-test
 wp-env destroy
 ```
 
-Future integration coverage can extend this environment to cart/session behavior, checkout persistence, and HPOS-specific order flows.
+Future integration coverage can add Checkout Blocks extensibility and selected gateway-free end-to-end flows without introducing private store data.
