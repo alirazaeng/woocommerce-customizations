@@ -49,4 +49,4 @@ jobs:
 
       - name: Destroy disposable environment
         if: always()
-        run: wp-env destroy
+        run: wp-env destroy --force
