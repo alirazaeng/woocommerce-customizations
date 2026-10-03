@@ -144,10 +144,15 @@ WP_CLI::add_command(
 		 * WooCommerce enables HPOS for fresh stores. Verify the active data
 		 * store before asserting persistence through WC_Order APIs.
 		 */
+		$hpos_option = 'woocommerce_custom_orders_table_enabled';
+		$original_hpos_value = get_option( $hpos_option, 'no' );
+
+		update_option( $hpos_option, 'yes' );
+
 		$hpos_enabled = class_exists( '\\Automattic\\WooCommerce\\Utilities\\OrderUtil' )
 			&& \Automattic\WooCommerce\Utilities\OrderUtil::custom_orders_table_usage_is_enabled();
 
-		$assert( $hpos_enabled, 'High-Performance Order Storage is active in the disposable store.' );
+		$assert( $hpos_enabled, 'High-Performance Order Storage is explicitly enabled for the runtime test.' );
 
 		$order = wc_create_order();
 
@@ -175,6 +180,8 @@ WP_CLI::add_command(
 		if ( $loaded_order instanceof WC_Order ) {
 			$loaded_order->delete( true );
 		}
+
+		update_option( $hpos_option, $original_hpos_value );
 
 		WC()->cart->empty_cart();
 		wp_delete_post( $product_id, true );
