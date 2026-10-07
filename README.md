@@ -1,6 +1,6 @@
 # WooCommerce Customizations
 
-Production-oriented WooCommerce customization patterns covering products, cart, checkout, customer accounts, orders, and conditional frontend assets.
+Production-oriented WooCommerce development patterns covering Checkout Blocks, classic checkout, HPOS, cart behavior, products, customer accounts, orders, and extension-safe frontend customization.
 
 [![WooCommerce Code Quality](https://github.com/alirazaeng/woocommerce-customizations/actions/workflows/quality.yml/badge.svg)](https://github.com/alirazaeng/woocommerce-customizations/actions/workflows/quality.yml) [![Runtime Integration](https://github.com/alirazaeng/woocommerce-customizations/actions/workflows/integration.yml/badge.svg)](https://github.com/alirazaeng/woocommerce-customizations/actions/workflows/integration.yml) [![Release](https://img.shields.io/github/v/release/alirazaeng/woocommerce-customizations?label=release)](https://github.com/alirazaeng/woocommerce-customizations/releases/latest) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
