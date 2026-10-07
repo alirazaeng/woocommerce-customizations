@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Ali WooCommerce Customizations
  * Description: Modular, opt-in WooCommerce customization patterns for products, cart, checkout, accounts, orders, and frontend assets.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Engineer Ali Raza
  * License: MIT
  * Requires at least: 6.4
@@ -14,7 +14,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'ARWC_VERSION', '1.0.0' );
+define( 'ARWC_VERSION', '1.1.0' );
 define( 'ARWC_FILE', __FILE__ );
 define( 'ARWC_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ARWC_URL', plugin_dir_url( __FILE__ ) );
