@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-10-07
+
 ### Added
 
 - disposable WordPress + WooCommerce runtime integration workflow using wp-env
