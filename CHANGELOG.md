@@ -8,6 +8,8 @@
 - runtime coverage for safe default feature flags and real `WC_Product` behavior
 - real WooCommerce cart/session subtotal and minimum-order validation coverage
 - classic checkout field registration and validation coverage
+- Checkout Blocks delivery-note integration through WooCommerce's Additional Checkout Fields API
+- runtime verification of Checkout Blocks field registration, sanitization and validation
 - explicit HPOS runtime validation
 - real `WC_Order` creation plus sanitized metadata persistence/readback through WooCommerce CRUD
 - runtime integration status badge
