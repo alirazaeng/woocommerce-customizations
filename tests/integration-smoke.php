@@ -27,6 +27,7 @@ WP_CLI::add_command(
 		$assert( class_exists( 'ARWC_Product' ), 'Product customization module loaded.' );
 		$assert( class_exists( 'ARWC_Cart' ), 'Cart customization module loaded.' );
 		$assert( class_exists( 'ARWC_Checkout' ), 'Checkout customization module loaded.' );
+		$assert( class_exists( 'ARWC_Checkout_Blocks' ), 'Checkout Blocks customization module loaded.' );
 		$assert( false === ARWC_Plugin::feature_enabled( 'low_stock_message' ), 'Optional features remain disabled by default.' );
 
 		$product = new WC_Product_Simple();
@@ -136,6 +137,42 @@ WP_CLI::add_command(
 			$errors->has_errors()
 			&& in_array( 'arwc_delivery_note_too_long', $errors->get_error_codes(), true ),
 			'Classic checkout validation rejects delivery notes longer than 180 characters.'
+		);
+
+		/*
+		 * Checkout Blocks Additional Checkout Fields API.
+		 */
+		$assert(
+			function_exists( 'woocommerce_register_additional_checkout_field' ),
+			'WooCommerce Additional Checkout Fields API is available.'
+		);
+
+		$blocks_checkout = new ARWC_Checkout_Blocks();
+		$blocks_checkout->register_delivery_note_field();
+
+		$checkout_fields = \Automattic\WooCommerce\Blocks\Package::container()->get(
+			\Automattic\WooCommerce\Blocks\Domain\Services\CheckoutFields::class
+		);
+		$additional_fields = $checkout_fields->get_additional_fields();
+
+		$assert(
+			isset( $additional_fields[ ARWC_Checkout_Blocks::FIELD_ID ] )
+			&& 'order' === $additional_fields[ ARWC_Checkout_Blocks::FIELD_ID ]['location']
+			&& false === $additional_fields[ ARWC_Checkout_Blocks::FIELD_ID ]['required'],
+			'Delivery note registers as an optional Checkout Blocks order field.'
+		);
+
+		$assert(
+			'Leave at the side door.' === $blocks_checkout->sanitize_delivery_note( '  Leave at the side door.  ' ),
+			'Checkout Blocks delivery note sanitization uses WordPress text sanitization.'
+		);
+
+		$blocks_error = $blocks_checkout->validate_delivery_note( str_repeat( 'x', 181 ) );
+
+		$assert(
+			$blocks_error instanceof WP_Error
+			&& in_array( 'arwc_delivery_note_too_long', $blocks_error->get_error_codes(), true ),
+			'Checkout Blocks validation rejects delivery notes longer than 180 characters.'
 		);
 
 		/*

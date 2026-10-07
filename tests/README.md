@@ -30,6 +30,8 @@ The runtime test verifies that:
 - a real WooCommerce cart/session calculates the expected subtotal
 - minimum-order validation writes a WooCommerce error notice
 - classic checkout field registration and validation work
+- Checkout Blocks delivery-note registration uses WooCommerce's Additional Checkout Fields API
+- Checkout Blocks sanitization and validation run against the real WooCommerce field service
 - the suite explicitly enables HPOS before order-persistence assertions
 - a real order is created under HPOS
 - sanitized checkout metadata persists and reads back through `WC_Order` CRUD
@@ -49,4 +51,4 @@ wp-env run cli wp arwc-test
 wp-env destroy
 ```
 
-Future integration coverage can add Checkout Blocks extensibility and selected gateway-free end-to-end flows without introducing private store data.
+Future integration coverage can add selected gateway-free end-to-end Store API flows without introducing private store data.

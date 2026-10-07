@@ -15,7 +15,7 @@ add_filter( 'arwc_enable_catalog_badge', '__return_true' );
 add_filter( 'arwc_enable_cart_message', '__return_true' );
 
 /*
- * Classic checkout only:
+ * Delivery note for classic checkout and Checkout Blocks (WooCommerce 8.9+):
  *
  * add_filter( 'arwc_enable_delivery_note', '__return_true' );
  *

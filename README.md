@@ -13,6 +13,7 @@ This repository is designed as a maintainable WooCommerce engineering reference�
 - product and catalog customizations
 - cart validation and notices
 - classic checkout field lifecycle
+- Checkout Blocks Additional Checkout Fields API integration
 - sanitized order metadata persistence
 - HPOS-aware WooCommerce order CRUD
 - customer/admin order metadata display
@@ -65,6 +66,7 @@ woocommerce-customizations/
 │       │   ├── class-arwc-assets.php
 │       │   ├── class-arwc-cart.php
 │       │   ├── class-arwc-checkout.php
+│       │   ├── class-arwc-checkout-blocks.php
 │       │   ├── class-arwc-order.php
 │       │   ├── class-arwc-plugin.php
 │       │   └── class-arwc-product.php
@@ -81,7 +83,7 @@ woocommerce-customizations/
 | --- | --- |
 | Products | Low-stock messaging, sale/catalog badge |
 | Cart | Minimum-order validation, contextual notices |
-| Checkout | Custom field, validation, sanitization, persistence |
+| Checkout | Classic field lifecycle plus Checkout Blocks Additional Checkout Fields API |
 | Orders | Admin/customer metadata display through `WC_Order` |
 | My Account | Custom endpoint and navigation item |
 | Assets | Conditional WooCommerce-only loading |
@@ -135,7 +137,9 @@ The implementation uses:
 - `woocommerce_after_checkout_validation`
 - `woocommerce_checkout_create_order`
 
-These are **classic checkout** patterns. Checkout Blocks require their own extensibility approach.
+These hooks cover **classic checkout**.
+
+For **Checkout Blocks**, the same opt-in delivery-note feature is registered through WooCommerce's Additional Checkout Fields API on `woocommerce_init`. The Blocks module feature-detects the API, registers an order-level field, caps it at 180 characters, and supplies server-side sanitization and validation callbacks. WooCommerce then owns Store API persistence and its normal order/confirmation rendering.
 
 See [Checkout customization](docs/checkout-customization.md).
 
@@ -197,7 +201,7 @@ GitHub Actions runs:
 2. dependency installation
 3. WordPress Coding Standards / PHPCS
 4. PHP syntax checks across plugin and examples
-5. a disposable WordPress + WooCommerce runtime integration smoke test
+5. a disposable WordPress + WooCommerce runtime integration test covering products, cart/session behavior, classic checkout, Checkout Blocks field registration/validation, HPOS and order CRUD
 
 Run static checks locally:
 
