@@ -42,6 +42,7 @@ final class ARWC_Plugin {
 			'class-arwc-product.php',
 			'class-arwc-cart.php',
 			'class-arwc-checkout.php',
+			'class-arwc-checkout-blocks.php',
 			'class-arwc-account.php',
 			'class-arwc-order.php',
 			'class-arwc-assets.php',
@@ -54,6 +55,7 @@ final class ARWC_Plugin {
 		( new ARWC_Product() )->init();
 		( new ARWC_Cart() )->init();
 		( new ARWC_Checkout() )->init();
+		( new ARWC_Checkout_Blocks() )->init();
 		( new ARWC_Account() )->init();
 		( new ARWC_Order() )->init();
 		( new ARWC_Assets() )->init();
